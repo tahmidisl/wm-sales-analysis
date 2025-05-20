@@ -5,7 +5,7 @@ Exploring a dataset of over 1000 Walmart sales, this project uses Python along w
 ## Results and Insights 
 
 ### Identifying which payment methods dominate, and how many items move through each. 
-This has use cases in terms of negotiating process fees for crewdit cards, and identifying where to invest promotional incentives.
+I did this to gain insights in terms of negotiating process fees for credit cards, and identifying what would be the best categories to invest in for promotional incentives.
 
 ```sq
 SELECT
@@ -17,7 +17,7 @@ GROUP BY payment_method;
 ```
 
 ### Identifying each Walmart branch's highest rated product categories.
-This allows decision makers to tailor inventory and prioritize promotions on a local basis to cater to unique customer needs.
+This would allow me to show decision makers how to tailor inventory and prioritize promotions on a local basis to cater to unique customer needs.
 ```sq
 SELECT branch, category, avg_rating
 FROM (
@@ -36,7 +36,7 @@ WHERE rnk = 1;
 ```
 
 ### Which day of the week do Walmart stores have the highest foot traffic?
-This allows for the optimization of staff levels, restocking, and promotion incentives to correspond with peak shopping days.
+This would allow me to see staff levels can be best optimized, as well as how we can plan for restocking and promotion incentives to correspond with peak shopping days.
 ```sq
 SELECT branch, day_name, transaction_count
 FROM (
@@ -55,7 +55,7 @@ WHERE rnk = 1;
 ```
 
 ### Which categories generate the most profit?
-Identifying high profit margin items can allow for a priortization of products in terms of upselling, bundling and target marketing.
+Identifying high profit margin items allows for a priortization of products in terms of upselling, bundling and target marketing.
 ```sq
 SELECT
   category,
@@ -65,7 +65,7 @@ GROUP BY category
 ORDER BY total_profit DESC;
 ```
 ### How does customer activity change as the time of day shifts?
-This allows for branches to prepare and optimize their stores based on busy shopping windows, maximizing their oppurtunities of succsess.
+This data can be shown to specific branches in order from them to prepare and optimize their stores based on busy shopping windows, maximizing their oppurtunities of succsess.
 ```sq
 SELECT
   branch,
@@ -81,7 +81,7 @@ ORDER BY branch, invoices DESC;
 ```
 
 ### Which branches are experiences year-over-year revenue declines, and how steep are these declines?
-Singling out underperforming locations allows for a deeper competitive analysis, and possible corrective action.
+I singled out specific underperforming locations to allow for a deeper competitive analysis within this branches, i.e. discover why they are struggling, and follow up with possible corrective action as necessary.
 ```sq
 WITH revenue_last_year AS (
   SELECT branch, SUM(purchase_amnt) AS revenue
